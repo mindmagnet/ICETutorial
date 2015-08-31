@@ -77,4 +77,20 @@ typedef void (^ButtonBlock)(UIButton * __nonnull button);
 // State.
 - (ScrollingState)getCurrentState;
 
+#pragma mark - IBAction
+
+/**
+ *  Override this method in order to catch button 1 on click event
+ *
+ *  @param sender An instance of UIButton class
+ */
+- (IBAction)didClickOnButton1:(UIButton * __nonnull)sender;
+
+/**
+ *  Override this method in order to catch button 2 on click event
+ *
+ *  @param sender An instance of UIButton class
+ */
+- (IBAction)didClickOnButton2:(UIButton * __nonnull)sender;
+
 @end
