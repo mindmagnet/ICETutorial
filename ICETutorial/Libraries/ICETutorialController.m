@@ -15,8 +15,6 @@
 @property (nonatomic, strong, readonly) UIScrollView *scrollView;
 @property (nonatomic, strong, readonly) UILabel *overlayTitle;
 @property (nonatomic, strong, readonly) UIPageControl *pageControl;
-@property (nonatomic, strong, readonly) UIButton *leftButton;
-@property (nonatomic, strong, readonly) UIButton *rightButton;
 
 @property (nonatomic, assign) ScrollingState currentState;
 @property (nonatomic, strong) NSArray *pages;

@@ -10,6 +10,8 @@
 #import "ICETutorialPage.h"
 #import "ICETutorialStyle.h"
 
+@class ICETutorialController;
+
 #define TUTORIAL_LABEL_TEXT_COLOR               [UIColor whiteColor]
 #define TUTORIAL_LABEL_HEIGHT                   45
 #define TUTORIAL_TITLE_FONT                     [UIFont fontWithName:@"Helvetica-Bold" size:17.0f]
@@ -26,22 +28,46 @@ typedef NS_OPTIONS(NSUInteger, ScrollingState) {
     ScrollingStateLooping   = 1 << 2,
 };
 
-typedef void (^ButtonBlock)(UIButton *button);
+typedef void (^ButtonBlock)(UIButton * __nonnull button);
 
-@protocol ICETutorialControllerDelegate;
+@protocol ICETutorialControllerDelegate <NSObject>
+
+@optional
+
+- (void)tutorialController:(ICETutorialController * __nonnull)tutorialController
+    scrollingFromPageIndex:(NSUInteger)fromIndex
+               toPageIndex:(NSUInteger)toIndex;
+
+- (void)tutorialControllerDidReachLastPage:(ICETutorialController * __nonnull)tutorialController;
+
+- (void)tutorialController:(ICETutorialController * __nonnull)tutorialController
+      didClickOnLeftButton:(UIButton * __nonnull)sender;
+
+- (void)tutorialController:(ICETutorialController * __nonnull)tutorialController
+     didClickOnRightButton:(UIButton * __nonnull)sender;
+
+@end
+
 @interface ICETutorialController : UIViewController <UIScrollViewDelegate>
 
-@property (nonatomic, assign) BOOL autoScrollEnabled;
-@property (nonatomic, weak) id<ICETutorialControllerDelegate> delegate;
+@property (nonatomic, assign, readwrite) BOOL autoScrollEnabled;
+@property (nonatomic, weak, readwrite, nullable) id<ICETutorialControllerDelegate> delegate;
 
-// Inits.
-- (instancetype)initWithPages:(NSArray *)pages;
-- (instancetype)initWithPages:(NSArray *)pages
-                     delegate:(id<ICETutorialControllerDelegate>)delegate;
+// Buttons
+@property (nonatomic, strong, readwrite, nonnull) UIButton *leftButton;
+@property (nonatomic, strong, readwrite, nonnull) UIButton *rightButton;
+
+#pragma mark - Initialize
+
+- (nonnull instancetype)initWithPages:(NSArray * __nonnull)pages;
+- (nonnull instancetype)initWithPages:(NSArray * __nonnull)pages
+                     delegate:(id<ICETutorialControllerDelegate> __nullable)delegate;
 - (nonnull instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder;
 
+#pragma mark - Setup
+
 // Pages management.
-- (void)setPages:(NSArray*)pages;
+- (void)setPages:(NSArray * __nonnull)pages;
 - (NSUInteger)numberOfPages;
 
 // Scrolling.
@@ -51,13 +77,4 @@ typedef void (^ButtonBlock)(UIButton *button);
 // State.
 - (ScrollingState)getCurrentState;
 
-@end
-
-@protocol ICETutorialControllerDelegate <NSObject>
-
-@optional
-- (void)tutorialController:(ICETutorialController *)tutorialController scrollingFromPageIndex:(NSUInteger)fromIndex toPageIndex:(NSUInteger)toIndex;
-- (void)tutorialControllerDidReachLastPage:(ICETutorialController *)tutorialController;
-- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnLeftButton:(UIButton *)sender;
-- (void)tutorialController:(ICETutorialController *)tutorialController didClickOnRightButton:(UIButton *)sender;
 @end
