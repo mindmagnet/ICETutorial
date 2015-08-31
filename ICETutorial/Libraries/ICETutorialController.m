@@ -27,21 +27,20 @@
 
 @implementation ICETutorialController
 
+#pragma mark - Initialize Controller
+
 - (instancetype)initWithPages:(NSArray *)pages {
     self = [self init];
     if (self) {
-        _autoScrollEnabled = YES;
         _pages = pages;
-        
-        _frontLayerView = [[UIImageView alloc] init];
-        _backLayerView = [[UIImageView alloc] init];
-        _gradientView = [[UIImageView alloc] init];
-        _scrollView = [[UIScrollView alloc] init];
-        
-        _overlayTitle = [[UILabel alloc] init];
-        _pageControl = [[UIPageControl alloc] init];
-        _leftButton = [[UIButton alloc] init];
-        _rightButton = [[UIButton alloc] init];
+        [self initializeController];
+    }
+    return self;
+}
+
+- (nonnull instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        [self initializeController];
     }
     return self;
 }
@@ -54,6 +53,20 @@
     }
     return self;
 }
+
+- (void)initializeController {
+    _autoScrollEnabled = YES;
+    _frontLayerView = [[UIImageView alloc] init];
+    _backLayerView = [[UIImageView alloc] init];
+    _gradientView = [[UIImageView alloc] init];
+    _scrollView = [[UIScrollView alloc] init];
+    _overlayTitle = [[UILabel alloc] init];
+    _pageControl = [[UIPageControl alloc] init];
+    _leftButton = [[UIButton alloc] init];
+    _rightButton = [[UIButton alloc] init];
+}
+
+#pragma mark - View Life Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -38,6 +38,7 @@ typedef void (^ButtonBlock)(UIButton *button);
 - (instancetype)initWithPages:(NSArray *)pages;
 - (instancetype)initWithPages:(NSArray *)pages
                      delegate:(id<ICETutorialControllerDelegate>)delegate;
+- (nonnull instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder;
 
 // Pages management.
 - (void)setPages:(NSArray*)pages;
