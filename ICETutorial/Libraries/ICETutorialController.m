@@ -143,7 +143,7 @@
     // Overlay title.
     [self.overlayTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
     [constraints addObject:@"V:|-116-[_overlayTitle(==50)]"];
-    [constraints addObject:@"H:|-54-[_overlayTitle(==212)]-|"];
+    [constraints addObject:@"H:|-10-[_overlayTitle]-10-|"];
     
     // Buttons.
     [self.leftButton setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -155,12 +155,12 @@
     // PageControl.
     [self.pageControl setTranslatesAutoresizingMaskIntoConstraints:NO];
     [constraints addObject:@"V:[_pageControl(==32)]-60-|"];
-    [constraints addObject:@"H:|-140-[_pageControl(==40)]"];
+    [constraints addObject:@"H:|-10-[_pageControl]-10-|"];
 
     // GradientView.
     [self.gradientView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [constraints addObject:@"V:[_gradientView(==200)]-0-|"];
-    [constraints addObject:@"H:|-0-[_gradientView(==320)]-0-|"];
+    [constraints addObject:@"H:|-0-[_gradientView]-0-|"];
     
     // Set constraints.
     for (NSString *string in constraints) {
