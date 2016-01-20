@@ -64,8 +64,8 @@
 }
 
 - (NSUInteger)subTitleLinesNumber {
-    if (_titleLinesNumber != NSNotFound) {
-        return _titleLinesNumber;
+    if (_subTitleLinesNumber != NSNotFound) {
+        return _subTitleLinesNumber;
     }
     return TUTORIAL_SUB_TITLE_LINES_NUMBER;
 }

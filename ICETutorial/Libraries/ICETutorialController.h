@@ -18,7 +18,7 @@
 #define TUTORIAL_TITLE_LINES_NUMBER             1
 #define TUTORIAL_TITLE_OFFSET                   180
 #define TUTORIAL_SUB_TITLE_FONT                 [UIFont fontWithName:@"Helvetica" size:15.0f]
-#define TUTORIAL_SUB_TITLE_LINES_NUMBER         2
+#define TUTORIAL_SUB_TITLE_LINES_NUMBER         4
 #define TUTORIAL_SUB_TITLE_OFFSET               150
 
 // Scrolling state.
