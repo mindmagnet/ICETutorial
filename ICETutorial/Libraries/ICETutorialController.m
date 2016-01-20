@@ -13,8 +13,6 @@
 @property (nonatomic, strong, readonly) UIImageView *backLayerView;
 @property (nonatomic, strong, readonly) UIImageView *gradientView;
 @property (nonatomic, strong, readonly) UIScrollView *scrollView;
-@property (nonatomic, strong, readonly) UILabel *overlayTitle;
-@property (nonatomic, strong, readonly) UIPageControl *pageControl;
 
 @property (nonatomic, assign) ScrollingState currentState;
 @property (nonatomic, strong) NSArray *pages;

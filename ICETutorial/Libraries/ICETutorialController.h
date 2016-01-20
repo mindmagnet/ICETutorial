@@ -53,9 +53,11 @@ typedef void (^ButtonBlock)(UIButton * __nonnull button);
 @property (nonatomic, assign, readwrite) BOOL autoScrollEnabled;
 @property (nonatomic, weak, readwrite, nullable) id<ICETutorialControllerDelegate> delegate;
 
-// Buttons
+// Outlets
 @property (nonatomic, strong, readwrite, nonnull) UIButton *leftButton;
 @property (nonatomic, strong, readwrite, nonnull) UIButton *rightButton;
+@property (nonatomic, strong, readwrite, nonnull) UILabel *overlayTitle;
+@property (nonatomic, strong, readwrite, nonnull) UIPageControl *pageControl;
 
 #pragma mark - Initialize
 
