@@ -13,7 +13,7 @@
 @class ICETutorialController;
 
 #define TUTORIAL_LABEL_TEXT_COLOR               [UIColor whiteColor]
-#define TUTORIAL_LABEL_HEIGHT                   45
+#define TUTORIAL_LABEL_HEIGHT                   90
 #define TUTORIAL_TITLE_FONT                     [UIFont fontWithName:@"Helvetica-Bold" size:17.0f]
 #define TUTORIAL_TITLE_LINES_NUMBER             1
 #define TUTORIAL_TITLE_OFFSET                   180
